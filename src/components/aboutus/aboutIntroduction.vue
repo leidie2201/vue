@@ -2,7 +2,7 @@
     <div>
         <header>
             <h3>
-                <a href="../index.html" class="iconfont icon-xiangzuo"></a>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 关于埃德森
             </h3>
         </header>
@@ -133,6 +133,9 @@
         methods:{
             tab(index) {
                 this.num = index;
+            },
+            back(){
+                this.$router.go(-1);//返回上一层
             }
         }
     }

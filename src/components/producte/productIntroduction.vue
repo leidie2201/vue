@@ -2,7 +2,7 @@
     <div class="tpl">
         <header>
             <h3>
-                <router-link href="/" class="iconfont icon-xiangzuo"></router-link>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 产品介绍
             </h3>
         </header>
@@ -39,6 +39,9 @@
             this.getList();
         },
         methods:{
+            back(){
+                this.$router.go(-1);//返回上一层
+            },
             getList(){
                 const url = "/productList";
                 let that = this

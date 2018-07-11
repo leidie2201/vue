@@ -2,7 +2,7 @@
     <div>
         <header>
             <h3>
-                <a href="../index.html" class="iconfont icon-xiangzuo"></a>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 项目服务
             </h3>
         </header>
@@ -42,7 +42,18 @@
 </template>
 
 <script>
+    export default{
+        data(){
+            return {
 
+            }
+        },
+        methods:{
+            back(){
+                this.$router.go(-1);//返回上一层
+            }
+        }
+    }
 </script>
 
 <style>

@@ -2,7 +2,7 @@
     <div>
         <header>
             <h3>
-                <a href="../index.html" class="iconfont icon-xiangzuo"></a>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 解决方案
             </h3>
         </header>
@@ -52,6 +52,9 @@
                     .catch(function (error) {
                         console.log(error);
                     });
+            },
+            back(){
+                this.$router.go(-1);//返回上一层
             }
         }
     }

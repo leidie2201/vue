@@ -2,7 +2,7 @@
     <div>
         <header>
             <h3>
-                <a href="../index.html" class="iconfont icon-xiangzuo"></a>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 新闻
             </h3>
         </header>
@@ -78,6 +78,9 @@
             this.gettabContents();
         },
         methods:{
+            back(){
+                this.$router.go(-1);//返回上一层
+            },
             tab(index) {
                 this.num = index;
                 this.gettabContents();

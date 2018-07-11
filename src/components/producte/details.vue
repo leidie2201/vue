@@ -2,7 +2,7 @@
     <div>
         <header>
             <h3>
-                <a href="javascript:history.go(-1)" class="iconfont icon-xiangzuo"></a>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 <span>{{titlename}}</span>
             </h3>
         </header>
@@ -47,6 +47,9 @@
             }
         },
         methods:{
+            back(){
+                this.$router.go(-1);//返回上一层
+            },
             getDetailList(){
                 let url = "";
                 let param = {};
@@ -76,7 +79,6 @@
                         let detaildata;
                         const data = response.data;
                         if(that.types == "product"){
-                            debugger;
                             detaildata = data.data.product_details[0];
                             that.infodata.title = data.data.product_details[0].product_title;
                             that.infodata.createtime = data.data.product_details[0].product_createtime;

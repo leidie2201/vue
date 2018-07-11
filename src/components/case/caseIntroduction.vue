@@ -2,7 +2,7 @@
     <div>
         <header>
             <h3>
-                <a href="../index.html" class="iconfont icon-xiangzuo"></a>
+                <a @click="back()" class="iconfont icon-xiangzuo"></a>
                 成功案例
             </h3>
         </header>
@@ -21,7 +21,6 @@
                                <p>{{ value.title }}</p>
                             </router-link>
                         </li>
-                    }
                     </ul>
                 </div>
             </div>
@@ -43,6 +42,9 @@
             this.getList();
         },
         methods:{
+            back(){
+                this.$router.go(-1);//返回上一层
+            },
             getList(){
                 const url = "/caseStreamline";
                 var that = this;
@@ -50,7 +52,6 @@
                     .then( response => {
                         const data = response.data;
                         that.list = data.data;
-                        debugger;
                         that.list.forEach(item => {
                             item.info.forEach( value => {
                                 value.imageUrl = `${that.baseUrl}${value.casepic}`
